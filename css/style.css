@@ -12,21 +12,33 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--veryLightGray);
   color: var(--grayishBlue);
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.main_header {
+.main__header {
   text-align: center;
   padding: 60px 15px;
 }
 
-.main_title {
-  font-size: 1.7rem;
+.main__title {
+  font-size: 1.5rem;
   font-weight: 300;
   color: var(--veryDarkBlue);
 }
 
 .main__subtitle {
-  font-size: 1.01rem;
+  font-size: 1rem;
 }
 
 .cards {
@@ -34,14 +46,17 @@ body {
   display: grid;
   padding: 0 30px;
   padding-bottom: 60px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .card {
   position: relative;
   padding: 1.5rem;
-  height: 200px;
+  height: 170px;
   margin-bottom: 1.5rem;
-  border-radius: .75rem;
+  border-radius: .35rem;
   background-color: white;
   -webkit-box-shadow: 0px 10px 20px 0px rgba(84, 158, 242, 0.2);
           box-shadow: 0px 10px 20px 0px rgba(84, 158, 242, 0.2);
@@ -82,16 +97,47 @@ body {
   background-repeat: no-repeat;
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1280px) {
   .main {
     max-width: 1080px;
+    margin-top: 2rem;
+  }
+  .main__title {
+    font-size: 2.25rem;
+  }
+  .main__subtitle {
+    font-size: .9rem;
+  }
+  .main__header {
+    max-width: 500px;
+    padding: 45px 0px 40px 0px;
   }
   .cards {
     max-width: 1080px;
     -ms-grid-columns: (350px)[3];
         grid-template-columns: repeat(3, 350px);
-    -ms-grid-rows: (1fr)[2];
-        grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .card {
+    max-width: 350px;
+    height: 12.5rem;
+    margin-bottom: 0;
+  }
+  .card:first-child {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+  }
+  .card:nth-child(3) {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    grid-row: 2/4;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+  }
+  .card:first-child, .card:last-child {
+    top: 7rem;
   }
 }
 
